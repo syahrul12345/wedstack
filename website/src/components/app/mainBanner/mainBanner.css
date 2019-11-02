@@ -1,0 +1,65 @@
+@media (max-width:600px){
+    #intro {
+       font-size:28px;
+       text-align:center;
+       padding-right: 10px;
+        padding-left:10px
+    }
+    #blurb {
+        text-align:center;
+        padding-right: 10px;
+        padding-left:10px;
+    }
+    .buttonGrid {
+        text-align: center;
+    }
+    #getStartedBtn {
+        margin-bottom: 15px;
+    }
+   
+}
+@media (min-width:601px){
+    #intro {
+        font-size:32px;
+        padding-left: 24px;
+        margin-block-end: 0;
+        margin-block-start:0;
+    }
+    #blurb {
+        padding-left: 24px;
+    }
+    .buttonGrid {
+        padding-left: 24px;
+        margin-top: 15px;
+    }
+   
+}
+@media (min-width:1280px){
+    #intro {
+        font-size:50px;
+        text-align: left;
+    }
+    #blurb {
+        text-align: left;
+    }
+    
+    #getStartedBtn {
+        align-self: flex-start;
+    }
+    .mainGrid {
+       padding-right:20%;
+       padding-left:20%; 
+       
+    }
+}
+#intro {
+    font-weight: 400;
+    font-family: Rubik,sans-serif;
+}
+
+#blurb {
+    font-size:17px;
+    font-weight:400;
+    font-family: Rubik,sans-serif;
+   
+}

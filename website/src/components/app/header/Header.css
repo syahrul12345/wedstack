@@ -1,0 +1,9 @@
+IconButton {
+    offset-anchor: left;
+}
+@media (min-width:1280px){
+    #navBar {
+        padding-right: 20%;
+        padding-left:20%;
+    }
+}

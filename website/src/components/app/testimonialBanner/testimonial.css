@@ -1,0 +1,32 @@
+@media (max-width:600px) {
+    .testimonialHeader {
+        font-size:20px;
+        text-align: center;
+    }
+    .testimonialGrid {
+        text-align:center;
+        padding-right:10px;
+        padding-left:10px;
+    }
+}
+@media (min-width:601px) {
+    .testimonialGrid {
+        text-align:center;
+        padding-right:24px;
+        padding-left:24px;
+    }
+}
+@media (min-width:1280px) {
+    .testimonialGrid {
+        text-align: center;
+        padding-right:20%;
+        padding-left:20%; 
+    }
+    
+}
+
+.testimonialHeader {
+    font-family: Rubik,sans-serif;
+    font-size:30px;
+    text-align: center;
+}
