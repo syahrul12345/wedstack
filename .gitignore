@@ -59,3 +59,12 @@ typings/
 
 # next.js build output
 .next
+
+#go dependencies
+server/sample.log
+server/sample.pid
+server/server
+
+/server/sample.log
+/server/sample.pid
+/server/server
