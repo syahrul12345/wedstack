@@ -1,8 +1,6 @@
 @media (max-width:600px) {
     .featureGrid {
         text-align:left;
-        padding-right:10px;
-        padding-left:10px;
     }
     #featureHeader {
         font-family: Rubik,sans-serif;
@@ -16,20 +14,14 @@
         margin-block-start:10px;
         margin-block-end:0px;
     }
-    
 }
 
 @media (min-width:601px){
-    .featureGrid {
-        padding-right:24px;
-        padding-left:24px;
-    }
     #featureHeader {
         font-family: Rubik,sans-serif;
         font-size: 20px;
         margin-block-end:0px;
     }
-    
     #featureBlurb {
         font-family: Rubik,sans-serif;
         font-size: 35px;
@@ -40,12 +32,6 @@
     }
 }
 @media(min-width:1280px){
-    
-    .featureGrid {
-        padding-right:20%;
-        padding-left:20%;
-    }
-
     #featureHeader {
         font-family: Rubik,sans-serif;
         font-size:20px;

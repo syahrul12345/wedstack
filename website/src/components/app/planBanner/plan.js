@@ -16,27 +16,26 @@ export default function Plan() {
                         <PlanCard
                         imagePath="/images/key.png" 
                         planName="Bronze"
-                        planBlurb="Affordable without cutting corners"></PlanCard>
+                        planBlurb="From $2000"></PlanCard>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
                         <PlanCard
                         imagePath="/images/key.png" 
                         planName="Silver"
-                        planBlurb="Extra bling without the extragant prices."></PlanCard>
+                        planBlurb="From $5000"></PlanCard>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
                         <PlanCard
                         imagePath="/images/key.png" 
                         planName="Gold"
-                        planBlurb="All out weddings set to impress your friends and family"></PlanCard>
+                        planBlurb="From $6000"></PlanCard>
                     </Grid>
                     <Grid item xs={12} sm={6} md={3}>
                         <PlanCard
                         imagePath="/images/key.png" 
                         planName="Platinum"
-                        planBlurb="No expense is spared for the absolute best"></PlanCard>
+                        planBlurb="From $10,000"></PlanCard>
                     </Grid>
-                    
                 </Grid>
 
             </Grid>

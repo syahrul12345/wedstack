@@ -26,7 +26,7 @@ export default function App() {
           <title>Wedstack - Revolutionary Weddings</title>
           <link rel="canonical" href="https://wedstack.io" />
       </Helmet>
-      <Grid container spacing={1}>
+      <Grid container spacing={1} className="appGrid">
         <Grid item xs={12} m={12} l={12}>
           <Header></Header>
         </Grid>

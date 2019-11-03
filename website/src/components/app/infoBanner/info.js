@@ -12,6 +12,7 @@ export default function Info() {
                        Simply choose, configure, pay and turn up for your wedding
                    </p>
                </Grid>
+               <Grid item xs={12}>
                <Grid container spacing={2} align="center">
                     <Grid item xs={12} sm={12} md={4} lg={4}>
                         <InfoCard
@@ -31,6 +32,7 @@ export default function Info() {
                         imagePath="/images/dancer-pose.png"
                         title="Flexible"
                         blurb="Have a ceremony that doesn't fit the criteria of our ready made plans? Easily add on customizable options for a small fee."/>
+                    </Grid>
                     </Grid>
                 </Grid>
            </Grid>

@@ -46,11 +46,7 @@
     #getStartedBtn {
         align-self: flex-start;
     }
-    .mainGrid {
-       padding-right:20%;
-       padding-left:20%; 
-       
-    }
+    
 }
 #intro {
     font-weight: 400;

@@ -1,31 +1,11 @@
-@media (max-width:600px){
-    #planCardName{
-
-    }
-    #planCardBlurb{
-
-    }
-}
-@media(min-width: 601px){
-    #planCardName{
-
-    }
-    #planCardBlurb{
-
-    }
-}
-@media(min-width: 1280px){
-    #planCardName{
-
-    }
-    #planCardBlurb{
-        
-    }
-}
 
 #planCardName {
     font-family: 'Rubik',sans-serif;
+    font-size: 25px;
+    margin-block-end: 0px;
 }
 #planCardBlurb {
     font-family: 'Rubik',sans-serif;
+    font-size: 20px;
+    margin-block-start: 5px;
 }
