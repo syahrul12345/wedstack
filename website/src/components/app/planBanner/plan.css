@@ -1,0 +1,46 @@
+@media (max-width:600px){
+    #planTitle{
+        
+    }
+
+    #planBlurb{
+
+    }
+} 
+
+@media(min-width:601px){
+    #planTitle{
+        font-size:30px;
+        margin-block-end:0px;
+    }
+
+    #planBlurb{
+        font-size:17px;
+        margin-block-start: 5px;
+    }
+}
+@media(min-width:1280px){
+    .planGrid {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+    #planTitle{
+        font-size: 30px;
+        margin-block-end:0px;
+    }
+
+    #planBlurb{
+        font-size:20px;
+        margin-block-start: 5px;
+    }
+}
+
+#planTitle {
+    text-align: center;
+    font-family: 'Rubik',sans-serif;
+}
+
+#planBlurb {
+    text-align: center;
+    font-family: 'Rubik',sans-serif;
+}

@@ -1,0 +1,11 @@
+#featureCardTitle {
+    font-family: 'Rubik',sans-serif;
+    font-size:24px;
+    margin-block-end: 10px;
+}
+
+#featureCardBlurb {
+    font-family: 'Rubik',sans-serif;
+    font-size:16px;
+    margin-block-end:10px;
+}
