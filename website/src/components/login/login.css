@@ -1,0 +1,11 @@
+@media(min-width:601px){
+    #loginGrid{
+        text-align:center;
+        padding-right:34%;
+        padding-left:34%;
+    }
+}
+
+#loginGrid{
+    text-align: center;
+}

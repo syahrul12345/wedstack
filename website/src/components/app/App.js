@@ -1,52 +1,36 @@
-// export default App;
-import React from 'react';
-import Header from  './header'
-import MainBanner from './mainBanner'
-import Testimonial from './testimonialBanner'
-import Info from './infoBanner'
-import Features from './featuresBanner'
-import Plan from './planBanner'
-import Grid from '@material-ui/core/Grid';
-import './App.css'
-import { makeStyles } from '@material-ui/styles';
-import {Helmet} from "react-helmet";
-
-const useStyles = makeStyles(theme => ({
-  root: {
-    flexGrow:1
-  }
-}));
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Mainpage from '../mainpage'
+import Login from '../login'
 
 export default function App() {
-  const classes = useStyles()
-  return (
-    <div className={classes.root} id="grad">
-      <Helmet>
-          <meta charSet="utf-8" />
-          <title>Wedstack - Revolutionary Weddings</title>
-          <link rel="canonical" href="https://wedstack.io" />
-      </Helmet>
-      <Grid container spacing={1} className="appGrid">
-        <Grid item xs={12} m={12} l={12}>
-          <Header></Header>
-        </Grid>
-        <Grid item xs={12} m={12} l={12} >
-          <MainBanner></MainBanner>
-        </Grid>
-        <Grid item xs={12} m={12} l={12}>
-         <Testimonial></Testimonial>
-        </Grid>
-        <Grid item xs={12} m={12} l={12}>
-         <Info></Info>
-        </Grid>
-        <Grid item xs={12} m={12} l={12}>
-          <Features></Features>
-        </Grid>
-        <Grid item xs={12} m={12} l={12}>
-          <Plan></Plan>
-        </Grid>
-      </Grid>
-    </div>
-  )
-};
+    return(
+        <Router>
+            <Switch>
+                <Route exact path="/">
+                    <Mainpage/>
+                </Route>
+                <Route path="/login">
+                    <Login/>
+                </Route>
+            </Switch>
+        </Router>
+    )
+}
+
+function Home() {
+    return <h2>Home</h2>;
+}
   
+function About() {
+    return <h2>About</h2>;
+}
+
+function Users() {
+    return <h2>Users</h2>;
+}

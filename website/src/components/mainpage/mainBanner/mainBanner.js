@@ -6,7 +6,7 @@ import { Picture } from 'react-responsive-picture';
 export default function MainBanner() {
     return(
         <div>
-            <Grid container spacing = {0} className="mainGrid">
+            <Grid container spacing = {0}>
                 <Grid item xs={12} sm={6} md={6} lg={6}>
                     <p id="intro">Accelerate your Wedding</p>
                     <p id="blurb"> Quickly get started without dealing with scammy wedding planners.
