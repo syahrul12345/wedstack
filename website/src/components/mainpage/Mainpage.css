@@ -8,6 +8,7 @@
 
 #grad {
   background-image: linear-gradient(to bottom, #31ff96,white); /* Standard syntax (must be last) */
+  
 }
 @media(max-width:600px){
   .appGrid{
