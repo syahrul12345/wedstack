@@ -2,50 +2,47 @@ package main
 
 import (
 	"fmt"
-	"log"
 	"net/http"
 	"os"
 	"path/filepath"
+	"server/auth"
 	"server/controller"
 
 	"github.com/gorilla/mux"
-	"github.com/joho/godotenv"
 	"github.com/rs/cors"
-	"github.com/sevlyar/go-daemon"
 )
 
+// func main() {
+// 	e := godotenv.Load()
+// 	if e != nil {
+// 		fmt.Print(e)
+// 	}
+// 	cntxt := &daemon.Context{
+// 		PidFileName: "sample.pid",
+// 		PidFilePerm: 0644,
+// 		LogFileName: "sample.log",
+// 		LogFilePerm: 0640,
+// 		WorkDir:     "./",
+// 		Umask:       027,
+// 		Args:        []string{"[go-daemon sample]"},
+// 	}
+
+// 	d, err := cntxt.Reborn()
+// 	if err != nil {
+// 		log.Fatal("Unable to run: ", err)
+// 	}
+// 	if d != nil {
+// 		return
+// 	}
+
+// 	defer cntxt.Release()
+// 	log.Print("- - - - - - - - - - - - - - -")
+// 	log.Print("daemon started")
+// 	serve()
+// }
+
 func main() {
-	e := godotenv.Load()
-	if e != nil {
-		fmt.Print(e)
-	}
-	cntxt := &daemon.Context{
-		PidFileName: "sample.pid",
-		PidFilePerm: 0644,
-		LogFileName: "sample.log",
-		LogFilePerm: 0640,
-		WorkDir:     "./",
-		Umask:       027,
-		Args:        []string{"[go-daemon sample]"},
-	}
-
-	d, err := cntxt.Reborn()
-	if err != nil {
-		log.Fatal("Unable to run: ", err)
-	}
-	if d != nil {
-		return
-	}
-
-	defer cntxt.Release()
-	log.Print("- - - - - - - - - - - - - - -")
-	log.Print("daemon started")
-	serve()
-}
-
-func serve() {
 	router := mux.NewRouter()
-	// router.Use(auth.JwtAuthentication)
 	router.HandleFunc("/api/login", controller.Login).Methods("POST")
 	router.HandleFunc("/api/newAccount", controller.CreateAccount).Methods("POST")
 	router.HandleFunc("/api/changePassword", controller.ChangePassword).Methods("POST")
@@ -70,11 +67,14 @@ func serve() {
 		}
 		fileServer.ServeHTTP(w, r)
 	}))
+
+	router.Use(auth.JwtAuthentication)
+
 	port := os.Getenv("port")
 	fmt.Println("Serving static website at http://localhost:" + port)
 	//lets set the cors policy for testing
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:8080"},
+		AllowedOrigins:   []string{"http://localhost:3000"},
 		AllowCredentials: true,
 	})
 	handler := c.Handler(router)

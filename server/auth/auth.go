@@ -17,11 +17,25 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(writer http.ResponseWriter, request *http.Request) {
 		requestPath := request.URL.Path
 		//auth is the list of paths that does not require authentication
-		auth := []string{"/", "/login", "/createAccount"}
-		fmt.Println(requestPath)
-		//check if response does not require authenthication
+		//include /static/ served CSS
+		auth := []string{"/",
+			"/login",
+			"/loginError",
+			"/api/login",
+			"/api/newAccount",
+			"/api/changePassword"}
+
+		//Static content from /static/ and /favicon.ico should always be served
+		// the front end will make the appropriate request
+		// if it 403s, then it will route to the /loginError page
+		routeSubstring := ""
+		if len(requestPath) > 8 {
+			routeSubstring = requestPath[0:8]
+		}
+		png := requestPath[len(requestPath)-3:]
+
 		for _, value := range auth {
-			if value == requestPath {
+			if value == requestPath || routeSubstring == "/static/" || requestPath == "/favicon.ico" || requestPath == "/manifest.json" || png == "png" {
 				next.ServeHTTP(writer, request)
 				return
 			}

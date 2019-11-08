@@ -3,7 +3,7 @@ import { Grid, Card, CardContent,Button, createMuiTheme, MuiThemeProvider } from
 import TextField from '@material-ui/core/TextField';
 import grey from 'material-ui/colors/grey';
 import './login.css'
-
+import axios from 'axios'
 const theme = createMuiTheme({
     palette:{
         primary:{
@@ -19,8 +19,14 @@ export default function Login() {
         showPassword: false,
     })
     const login = () => {
-        console.log(values.userId)
-        console.log(values.password)
+        axios.post('http://localhost:9190/api/login',{
+            email:values.userId,
+            password:values.password
+        }).then((result) => {
+            console.log(result)
+        }).catch((error)=>{
+            console.log(error.response)
+        })
     }   
     const handleChange = prop => event => {
         setValues({ ...values, [prop]: event.target.value });
@@ -61,7 +67,8 @@ export default function Login() {
                         id="loginButton"
                         variant="contained"
                         fullWidth
-                        color="primary"> Login </Button>
+                        color="primary"
+                        onClick={login}> Login </Button>
                     </MuiThemeProvider>
                     <p> Sign up for an account now</p>
                 </Grid>
