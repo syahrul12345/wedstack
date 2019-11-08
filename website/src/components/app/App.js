@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import Mainpage from '../mainpage'
 import Login from '../login'
-
+import SignUp from '../signup'
 export default function App() {
     return(
         <Router>
@@ -17,6 +17,9 @@ export default function App() {
                 </Route>
                 <Route path="/login">
                     <Login/>
+                </Route>
+                <Route path="/signup">
+                    <SignUp></SignUp>
                 </Route>
             </Switch>
         </Router>

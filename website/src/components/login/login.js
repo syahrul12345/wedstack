@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
-import { Grid, Card, CardContent,Button, createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import { Grid,Button,endAdornment,IconButton,createMuiTheme, MuiThemeProvider } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
+import RemoveRedEye from '@material-ui/icons/RemoveRedEye';
 import grey from 'material-ui/colors/grey';
 import './login.css'
 import axios from 'axios'
@@ -53,7 +54,8 @@ export default function Login() {
                     fullWidth
                     variant="outlined"
                     style={{marginBlockEnd:'1vh'}}
-                    onChange={handleChange('userId')}/>
+                    onChange={handleChange('userId')}
+                    />
                     <TextField
                     id="passwordField"
                     type={values.showPassword ? 'text' : 'password'}
@@ -61,7 +63,16 @@ export default function Login() {
                     label="Password"
                     fullWidth
                     variant="outlined"
-                    onChange={handleChange('password')}/>
+                    onChange={handleChange('password')}
+                    InputProps={{
+                        endAdornment: (
+                            <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            >
+                            </IconButton>
+                        ),
+                      }}/>
                     <MuiThemeProvider theme={theme}>
                         <Button 
                         id="loginButton"

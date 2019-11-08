@@ -1,0 +1,13 @@
+@media(min-width:1920px){
+    #signupGrid{
+        padding-right:34%;
+        padding-left:34%;
+    }
+}
+
+#signupHeader {
+    margin-bottom: 1vh;
+}
+#createBtn {
+    margin-top:2vh;
+}
