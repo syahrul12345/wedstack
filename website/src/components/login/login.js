@@ -1,8 +1,10 @@
 import React,{useState} from 'react'
-import { Grid,Button,endAdornment,IconButton,createMuiTheme, MuiThemeProvider } from '@material-ui/core'
+import { Grid,Button,IconButton,createMuiTheme, MuiThemeProvider } from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
-import RemoveRedEye from '@material-ui/icons/RemoveRedEye';
 import grey from 'material-ui/colors/grey';
+import Visibility from '@material-ui/icons/Visibility'
+import VisibilityOff from '@material-ui/icons/VisibilityOff'
+import {Helmet} from "react-helmet";
 import './login.css'
 import axios from 'axios'
 const theme = createMuiTheme({
@@ -39,6 +41,11 @@ export default function Login() {
 
     return(
         <div id="grad">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Wedstack | Login</title>
+                <link rel="canonical" href="https://wedstack.io/Login" />
+            </Helmet>
             <Grid
                 container
                 direction="row"
@@ -70,6 +77,7 @@ export default function Login() {
                             aria-label="toggle password visibility"
                             onClick={handleClickShowPassword}
                             >
+                                {values.showPassword ? <Visibility/> : <VisibilityOff/>}
                             </IconButton>
                         ),
                       }}/>
@@ -81,7 +89,10 @@ export default function Login() {
                         color="primary"
                         onClick={login}> Login </Button>
                     </MuiThemeProvider>
-                    <p> Sign up for an account now</p>
+                        <p 
+                        style={{marginTop:'2vh'}}>
+                            No Account? <a href="/signup">Sign up here</a>
+                        </p>
                 </Grid>
             </Grid>
         </div>

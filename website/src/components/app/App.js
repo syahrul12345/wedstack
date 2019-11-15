@@ -8,6 +8,7 @@ import {
 import Mainpage from '../mainpage'
 import Login from '../login'
 import SignUp from '../signup'
+import Dashboard from "../dashboard";
 export default function App() {
     return(
         <Router>
@@ -20,6 +21,9 @@ export default function App() {
                 </Route>
                 <Route path="/signup">
                     <SignUp></SignUp>
+                </Route>
+                <Route path="/dashboard">
+                    <Dashboard></Dashboard>
                 </Route>
             </Switch>
         </Router>

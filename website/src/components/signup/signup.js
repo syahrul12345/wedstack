@@ -1,7 +1,11 @@
 import React,{useState} from 'react'
 import { Grid,TextField,Button, createMuiTheme, MuiThemeProvider,IconButton } from '@material-ui/core'
 import grey from 'material-ui/colors/grey';
+import Visibility from '@material-ui/icons/Visibility'
+import VisibilityOff from '@material-ui/icons/VisibilityOff'
+import {Helmet} from "react-helmet";
 import './signup.css'
+import axios from 'axios';
 const theme = createMuiTheme({
     palette:{
         primary:{
@@ -31,12 +35,27 @@ export default function SignUp() {
         }
     }; 
     const createAccount = () => {
-        console.log(values.email)
-        console.log(values.password)
-        console.log(values.confirmPassword)
+        //First ensure that the passwords are consisten
+        if (values.password !==values.confirmPassword) {
+            console.log("password is not the same")
+            return
+        }
+        axios.post("/api/newAccount",{
+            email:values.email,
+            password:values.password
+        }).then((result) => {
+            console.log(result)
+        }).catch((error) => {
+            console.log(error.response)
+        })
     }
     return(
         <div id="grad">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Wedstack | Signup</title>
+                <link rel="canonical" href="https://wedstack.io/signup" />
+            </Helmet>
             <Grid
             container
             direction="row"
@@ -46,7 +65,7 @@ export default function SignUp() {
                 item
                 xs={12}
                 id="signupGrid">
-                    <p style={{marginBlockEnd:'1vh'}}>Sign up</p>
+                <p>Sign up</p>
                 <TextField
                 id="emailField"
                 value={values.email}
@@ -70,6 +89,7 @@ export default function SignUp() {
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword('showPassword')}
                         >
+                            {values.showPassword ? <Visibility/> : <VisibilityOff/>}
                         </IconButton>
                     ),
                   }}/>
@@ -87,6 +107,7 @@ export default function SignUp() {
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword('showConfirmPassword')}
                         >
+                            {values.showConfirmPassword ? <Visibility/> : <VisibilityOff/>}
                         </IconButton>
                     ),
                   }}/>

@@ -26,6 +26,15 @@
     -->
     <title>React App</title>
   </head>
+  <script src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_site_key"></script>
+  <script>
+  grecaptcha.ready(function() {
+      grecaptcha.execute('6LfC1cEUAAAAAISBgxbABSDag80Rskl1eyF4uGy6').then(function(token) {
+        console.log("recaptcha loaded")
+        CONSOLE.log("token")
+      });
+  });
+  </script>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>

@@ -19,6 +19,7 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 		//auth is the list of paths that does not require authentication
 		//include /static/ served CSS
 		auth := []string{"/",
+			"/signup",
 			"/login",
 			"/loginError",
 			"/api/login",
@@ -28,14 +29,17 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 		//Static content from /static/ and /favicon.ico should always be served
 		// the front end will make the appropriate request
 		// if it 403s, then it will route to the /loginError page
-		routeSubstring := ""
+		//FIX THIS
+		staticSubstring := ""
 		if len(requestPath) > 8 {
-			routeSubstring = requestPath[0:8]
+			staticSubstring = requestPath[0:8]
 		}
-		png := requestPath[len(requestPath)-3:]
-
+		png := ""
+		if requestPath != "/" {
+			png = requestPath[len(requestPath)-3:]
+		}
 		for _, value := range auth {
-			if value == requestPath || routeSubstring == "/static/" || requestPath == "/favicon.ico" || requestPath == "/manifest.json" || png == "png" {
+			if value == requestPath || staticSubstring == "/static/" || staticSubstring == "/images/" || requestPath == "/favicon.ico" || requestPath == "/manifest.json" || png == "png" {
 				next.ServeHTTP(writer, request)
 				return
 			}
