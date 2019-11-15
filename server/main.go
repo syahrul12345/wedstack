@@ -2,46 +2,48 @@ package main
 
 import (
 	"fmt"
+	"github.com/gorilla/mux"
+	"github.com/joho/godotenv"
+	"github.com/rs/cors"
+	"github.com/sevlyar/go-daemon"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
 	"server/auth"
 	"server/controller"
-
-	"github.com/gorilla/mux"
-	"github.com/rs/cors"
 )
 
-// func main() {
-// 	e := godotenv.Load()
-// 	if e != nil {
-// 		fmt.Print(e)
-// 	}
-// 	cntxt := &daemon.Context{
-// 		PidFileName: "sample.pid",
-// 		PidFilePerm: 0644,
-// 		LogFileName: "sample.log",
-// 		LogFilePerm: 0640,
-// 		WorkDir:     "./",
-// 		Umask:       027,
-// 		Args:        []string{"[go-daemon sample]"},
-// 	}
-
-// 	d, err := cntxt.Reborn()
-// 	if err != nil {
-// 		log.Fatal("Unable to run: ", err)
-// 	}
-// 	if d != nil {
-// 		return
-// 	}
-
-// 	defer cntxt.Release()
-// 	log.Print("- - - - - - - - - - - - - - -")
-// 	log.Print("daemon started")
-// 	serve()
-// }
-
 func main() {
+	e := godotenv.Load()
+	if e != nil {
+		fmt.Print(e)
+	}
+	cntxt := &daemon.Context{
+		PidFileName: "sample.pid",
+		PidFilePerm: 0644,
+		LogFileName: "sample.log",
+		LogFilePerm: 0640,
+		WorkDir:     "./",
+		Umask:       027,
+		Args:        []string{"[go-daemon sample]"},
+	}
+
+	d, err := cntxt.Reborn()
+	if err != nil {
+		log.Fatal("Unable to run: ", err)
+	}
+	if d != nil {
+		return
+	}
+
+	defer cntxt.Release()
+	log.Print("- - - - - - - - - - - - - - -")
+	log.Print("daemon started")
+	serve()
+}
+
+func serve() {
 	router := mux.NewRouter()
 	router.HandleFunc("/api/login", controller.Login).Methods("POST")
 	router.HandleFunc("/api/newAccount", controller.CreateAccount).Methods("POST")

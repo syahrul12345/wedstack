@@ -19,6 +19,7 @@ var JwtAuthentication = func(next http.Handler) http.Handler {
 		//auth is the list of paths that does not require authentication
 		//include /static/ served CSS
 		auth := []string{"/",
+			"/dashboard",
 			"/signup",
 			"/login",
 			"/loginError",
